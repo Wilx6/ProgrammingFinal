@@ -38,4 +38,18 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            transform.position = new Vector2(16.57f, 2.79f);
+        }
+
+        if (other.tag == "Door")
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
+    
 }
