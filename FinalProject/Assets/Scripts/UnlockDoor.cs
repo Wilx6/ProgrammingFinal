@@ -12,7 +12,8 @@ public class UnlockDoor : MonoBehaviour
 
     public SpriteRenderer sp;
     public Sprite newSprite;
-    bool changed = false;
+    public bool changed = false;
+
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class UnlockDoor : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && gameObject.tag == "Door" && checkIfOrange == true && checkIfBlue == true && checkIfRed == true)
+        if (Input.GetMouseButtonDown(0) && gameObject.tag == "Door" && checkIfOrange.orangeButton == true && checkIfBlue.blueButton == true && checkIfRed.redButton == true)
         {
             ChangeSprite();
             changed = true;

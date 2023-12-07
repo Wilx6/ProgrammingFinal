@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private float Move;
 
+    public UnlockDoor doorScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        doorScript = GameObject.FindWithTag("Door").GetComponent<UnlockDoor>();
+        
+
         Move = Input.GetAxis("Horizontal");
 
         rb.velocity = new Vector2(Move * speed, rb.velocity.y);
@@ -46,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector2(16.57f, 2.79f);
         }
 
-        if (other.tag == "Door")
+        if (other.tag == "Door" && doorScript.changed == true)
         {
             SceneManager.LoadScene(2);
         }
